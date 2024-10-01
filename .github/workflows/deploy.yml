@@ -27,3 +27,4 @@ jobs:
         git push epitech main --force
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
+
