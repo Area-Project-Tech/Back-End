@@ -21,13 +21,23 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Create a new commit and push to Epitech repo
+    - name: List files
+      run: ls -la
+
+    - name: Configure Git
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
+
+    - name: Add changes
+      run: git add -A
+
+    - name: Commit changes
+      run: git commit -m "Deploy from GitHub Actions" || echo "No changes to commit"
+
+    - name: Push to Epitech repo
+      run: |
         git remote add epitech https://github.com/EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
-        git add .
-        git commit -m "Deploy from GitHub Actions"
         git push epitech main --force
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
