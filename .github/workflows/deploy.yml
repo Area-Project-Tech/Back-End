@@ -21,9 +21,6 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-    - name: Build project
-      run: npm run build
-
     - name: Push to Epitech repo
       run: |
         git remote add epitech https://github.com/EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
