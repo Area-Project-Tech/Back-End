@@ -26,4 +26,4 @@ jobs:
         git remote add epitech https://github.com/EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
         git push epitech main --force
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
