@@ -30,6 +30,9 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan github.com >> ~/.ssh/known_hosts
 
+    - name: List files
+      run: ls -la ~/.ssh
+
     - name: Push to Epitech repo
       run: |
         git config --global user.email "arthur.dos-santos@epitech.eu"
