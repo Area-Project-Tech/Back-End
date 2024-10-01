@@ -32,3 +32,5 @@ jobs:
       run: |
         git remote add epitech git@github.com:EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
         git push epitech main --force
+      env:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
