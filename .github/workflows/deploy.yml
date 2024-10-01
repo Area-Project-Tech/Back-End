@@ -1,0 +1,32 @@
+name: Deploy Back-End
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build project
+      run: npm run build
+
+    - name: Push to Epitech repo
+      run: |
+        git remote add epitech https://github.com/EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
+        git push epitech main --force
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

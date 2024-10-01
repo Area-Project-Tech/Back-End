@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test OAuth</title>
+</head>
+<body>
+  <h1>Tester les connexions OAuth</h1>
+  <!-- Boutons de connexion pour les utilisateurs -->
+  <a href="http://localhost:8080/api/auth/google">Se connecter avec Google</a>
+  <br><br>
+  <a href="http://localhost:8080/api/auth/github">Se connecter avec GitHub</a>
+  <br><br>
+
+  <h1>Connecter les Services</h1>
+  <!-- Boutons pour connecter les services -->
+  <button id="connect-google">Connecter le Service Google</button>
+  <button id="connect-github">Connecter le Service GitHub</button>
+
+  <script>
+    const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2ZmIwZDU0NWY5MzE0MWRlNzkxOGQ3ZSIsImlhdCI6MTcyNzczODQ1MCwiZXhwIjoxNzI4MzQzMjUwfQ.4K9wTjlDIm8MaemiX4UnMVQ7yev9yMQ0ljYewnS9a0Q';
+
+    document.getElementById('connect-google').addEventListener('click', function() {
+      window.location.href = `http://localhost:8080/api/service/connect/google?token=${token}`;
+    });
+
+    document.getElementById('connect-github').addEventListener('click', function() {
+      window.location.href = `http://localhost:8080/api/service/connect/github?token=${token}`;
+    });
+  </script>
+</body>
+</html>
