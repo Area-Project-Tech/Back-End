@@ -20,7 +20,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install
-
+  
     - name: Setup SSH
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -32,9 +32,9 @@ jobs:
         eval "$(ssh-agent -s)"
         ssh-add ~/.ssh/id_rsa
 
-      - name: Push to Epitech repo
-        run: |
-          git config --global user.email "arthur.dos-santos@epitech.eu"
-          git config --global user.name "Arthur Dos Santos"
-          git remote add epitech git@github.com:EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
-          git push epitech main --force
+    - name: Push to Epitech repo
+      run: |
+        git config --global user.email "arthur.dos-santos@epitech.eu"
+        git config --global user.name "Arthur Dos Santos"
+        git remote add epitech git@github.com:EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
+        git push epitech main --force
