@@ -35,9 +35,16 @@ jobs:
     - name: Commit changes
       run: git commit -m "Deploy from GitHub Actions" || echo "No changes to commit"
 
+    - name: Setup SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+
     - name: Push to Epitech repo
       run: |
-        git remote add epitech https://github.com/EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
+        git remote add epitech git@github.com:EpitechPromo2027/B-DEV-500-NCE-5-1-area-steven.deffontaine.git
         git push epitech main --force
       env:
         GITHUB_TOKEN: ${{ secrets.PAT_TOKEN }}
